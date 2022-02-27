@@ -96,18 +96,18 @@ unittest(test_one)
   gst.setFalsePositive(423);
   gst.setFalseNegative(124);
 
-  assertEqualFloat(sensitivity(), 0.6069, 0.0001);
-  assertEqualFloat(specificity(), 0.7156, 0.0001);
+  assertEqualFloat(gst.sensitivity(), 0.6069, 0.0001);
+  assertEqualFloat(gst.specificity(), 0.7156, 0.0001);
 
-  assertEqualFloat(TPR(), 0.6069, 0.0001);
-  assertEqualFloat(FNR(), 0.3931, 0.0001);
-  assertEqualFloat(FPR(), 0.2844, 0.0001);
-  assertEqualFloat(TNR(), 0.7156, 0.0001);
+  assertEqualFloat(gst.TPR(), 0.6069, 0.0001);
+  assertEqualFloat(gst.FNR(), 0.3931, 0.0001);
+  assertEqualFloat(gst.FPR(), 0.2844, 0.0001);
+  assertEqualFloat(gst.TNR(), 0.7156, 0.0001);
 
-  assertEqualFloat(PPV(), 0.8404, 0.0001);
-  assertEqualFloat(NPV(), 0.4245, 0.0001);
-  assertEqualFloat(FDR(), 0.1596, 0.0001);
-  assertEqualFloat(FOR(), 0.5755, 0.0001);
+  assertEqualFloat(gst.PPV(), 0.8404, 0.0001);
+  assertEqualFloat(gst.NPV(), 0.4245, 0.0001);
+  assertEqualFloat(gst.FDR(), 0.1596, 0.0001);
+  assertEqualFloat(gst.FOR(), 0.5755, 0.0001);
 }
 
 
