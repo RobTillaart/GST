@@ -87,14 +87,15 @@ unittest(test_add)
   assertEqualFloat(gst.getTestedNegative(), 200, 0.001);
 }
 
+
 unittest(test_one)
 {
   GST gst;
 
   gst.setTruePositive(653);
   gst.setTrueNegative(312);
-  gst.setFalsePositive(423);
-  gst.setFalseNegative(124);
+  gst.setFalsePositive(124);
+  gst.setFalseNegative(423);
 
   assertEqualFloat(gst.sensitivity(), 0.6069, 0.0001);
   assertEqualFloat(gst.specificity(), 0.7156, 0.0001);
