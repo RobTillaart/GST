@@ -9,6 +9,7 @@
 - add long descriptive names for the short functions.
 - add derived class GoldenStandardTest, for descriptive name
 - added some documentation
+- split off GST.cpp file, prevent - https://github.com/RobTillaart/CRC/issues/21
 
 
 ## 0.1.0  2022-02-25

@@ -9,6 +9,12 @@ setTruePositive	KEYWORD2
 setTrueNegative	KEYWORD2
 setFalsePositive	KEYWORD2
 setFalseNegative	KEYWORD2
+clearAll	KEYWORD2
+
+addTruePositive	KEYWORD2
+addTrueNegative	KEYWORD2
+addFalsePositive	KEYWORD2
+addFalseNegative	KEYWORD2
 
 getTruePositive	KEYWORD2
 getTrueNegative	KEYWORD2

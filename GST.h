@@ -9,111 +9,109 @@
 //
 // formula's based upon Wikipedia.
 
-
 #define GST_LIB_VERSION           (F("0.1.1"))
+
+
+#include "Arduino.h"
 
 
 class GST
 {
 public:
-  GST() {};
+  GST();
 
   //  These four values of the matrix need to be set to get started.
-  void setTruePositive(float v = 0)   { TP = v; P = TP + FN; };
-  void setTrueNegative(float v = 0)   { TN = v; N = TN + FP; };
-  void setFalsePositive(float v = 0)  { FP = v; N = TN + FP; };
-  void setFalseNegative(float v = 0)  { FN = v; P = TP + FN; };
+  void setTruePositive(float v = 0);
+  void setTrueNegative(float v = 0);
+  void setFalsePositive(float v = 0);
+  void setFalseNegative(float v = 0);
+  void clearAll();
 
   //  These are used for updating the test matrix
-  void addTruePositive(float v)   { TP += v; P = TP + FN; };
-  void addTrueNegative(float v)   { TN += v; N = TN + FP; };
-  void addFalsePositive(float v)  { FP += v; N = TN + FP; };
-  void addFalseNegative(float v)  { FN += v; P = TP + FN; };
+  float addTruePositive(float v);
+  float addTrueNegative(float v);
+  float addFalsePositive(float v);
+  float addFalseNegative(float v);
 
 
-  //  Basic output functions
-  float getTruePositive()   { return TP; };
-  float getTrueNegative()   { return TN; };
-  float getFalsePositive()  { return FP; };
-  float getFalseNegative()  { return FN; };
+  //  Output functions I
+  float getTruePositive();
+  float getTrueNegative();
+  float getFalsePositive();
+  float getFalseNegative();
 
-  float getTotal()          { return  P + N; };
-  float getActualPositive() { return  P; };
-  float getActualNegative() { return  N; };
-  float getTestedPositive() { return TP + FP; };
-  float getTestedNegative() { return TN + FN; };
+  float getTotal();
+  float getActualPositive();
+  float getActualNegative();
+  float getTestedPositive();
+  float getTestedNegative();
 
-  float sensitivity()       { return TPR(); };
-  float specificity()       { return TNR(); };
-
-
-  float truePositiveRate()  { return TPR(); };
-  float TPR() { return TP / P; };
-  float trueNegativeRate()  { return TNR(); };
-  float TNR() { return TN / N; };
-  float falseNegativeRate() { return FNR(); };
-  float FNR() { return FN / P; };
-  float falsePositiveRate() { return FPR(); };
-  float FPR() { return FP / N); };
+  float sensitivity();
+  float specificity();
 
 
-  float positivePredictiveValue() { return PPV(); };
-  float PPV() { return TP / (TP + FP); };
-  float negativePredictiveValue() { return NPV(); };
-  float NPV() { return TN / (TN + FN); };
-  float falseDiscoveryRate() { return FDR(); };
-  float FDR() { return FP / (FP + TP); };
-  float falseOmissionRate() { return FOR(); };
-  float FOR() { return FN / (FN + TN); };
+  float truePositiveRate();
+  float TPR();
+  float trueNegativeRate();
+  float TNR();
+  float falseNegativeRate();
+  float FNR();
+  float falsePositiveRate();
+  float FPR();
 
 
-  float positiveLikelihoodRatio() { return LRplus(); };
-  float LRplus()  { return TPR() / FPR(); };
-  float negativeLikelihoodRatio() { return LRminus(); };
-  float LRminus() { return FNR() / TNR(); };
+  //  Output functions II
+  float positivePredictiveValue();
+  float PPV();
+  float negativePredictiveValue();
+  float NPV();
+  float falseDiscoveryRate();
+  float FDR();
+  float falseOmissionRate();
+  float FOR();
 
 
-  float prevalenceThreshold()  { return sqrt(FPR()) / (sqrt(TPR()) + sqrt(FPR())); };
-  float threatScore()  { return TP / (TP + FN + FP); };
-  float criticalSuccessIndex() { return threatScore(); };
+  float positiveLikelihoodRatio();
+  float LRplus();
+  float negativeLikelihoodRatio();
+  float LRminus();
 
 
-  float prevalence()       { return P / (P + N); };
-  float accuracy()         { return (TP + TN) / (P + N); };
-  float balancedAccuracy() { return (TPR() + TNR()) / 2; };
-  float F1Score()          { return (2 * TP)/(2 * TP + FP + FN); };
+  float prevalenceThreshold();
+  float threatScore();
+  float criticalSuccessIndex();
 
 
-  float MatthewsCorrelationCoefficient() { return MMC(); };
-  float phi() { return MCC(); };
-  float MCC() { return (TP*TN - FP*FN)/sqrt((TP+FP) * (TP+FN) * (TN+FP) * (TN+FN)); };
-  float FowlkesMallowsIndex() { return FM(); };
-  float FM() { return sqrt(PPV()*TPR()); };
-  float BookmakerInformedness() { return BM(); };
-  float BM() { return TPR() + TNR() - 1; };
+  float prevalence();
+  float accuracy();
+  float balancedAccuracy();
+  float F1Score();
 
 
-  float markedness() { return MK(); };
-  float deltaP() { return MK(); };
-  float MK() { return PPV() + NPV() - 1; };
-  float diagnosticOddsRatio() { return DOR(); };
-  float DOR() { return LRplus() / LRminus(); };
+  float MatthewsCorrelationCoefficient();
+  float phi();
+  float MCC();
+  float FowlkesMallowsIndex();
+  float FM();
+  float BookmakerInformedness();
+  float BM();
 
 
-private:
-  float P  = 0;
-  float N  = 0;
-  float TP = 0;
-  float TN = 0;
-  float FP = 0;
-  float FN = 0;
+  float markedness();
+  float deltaP();
+  float MK();
+  float diagnosticOddsRatio();
+  float DOR();
+
+
+private: 
+  float AP;   //  actual positive
+  float AN;   //  actual negative
+  float TP;   //  true positive
+  float TN;   //  true negative
+  float FP;   //  false positive
+  float FN;   //  false positive
 };
-
-
-//  for now identical.
-class GoldenStandardTest::GST
-{
-}
 
 
 // -- END OF FILE --

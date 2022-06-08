@@ -53,23 +53,28 @@ These four numbers should all be set before output functions make sense.
 The parameter **value** is typical absolute value measured or counted.
 If the parameter is omitted, the default 0 will be used to reset the value.
 
-- **void setTruePositive(float value = 0)** set the TP value
-- **void setTrueNegative(float value = 0)**
-- **void setFalsePositive(float value = 0)**
-- **void setFalseNegative(float value = 0)**
+- **void setTruePositive(float value = 0)** set the internal TP value.
+- **void setTrueNegative(float value = 0)** set the internal TN value.
+- **void setFalsePositive(float value = 0)** set the internal FP value.
+- **void setFalseNegative(float value = 0)** set the internal FN value.
+- **void clearAll()** reset all the above to 0.
 
 In tests one often want to increase / change the numbers.
 This can be done with the **addTruePositive()** etc functions. 
 After every addition all output functions can be called.
 
-- **void addTruePositive(float value)** increases the internal TP value.
+- **float addTruePositive(float value)** increases the internal TP value.
 Use a negative value to decrease.
-- **void addTrueNegative(float value)** increases the internal TN value.
+Returns the new value of TP.
+- **float addTrueNegative(float value)** increases the internal TN value.
 Use a negative value to decrease.
-- **void addFalsePositive(float value)** increases the internal FP value.
+Returns the new value of TN.
+- **float addFalsePositive(float value)** increases the internal FP value.
 Use a negative value to decrease.
-- **void addFalseNegative(float value)** increases the internal FN value.
+Returns the new value of FP.
+- **float addFalseNegative(float value)** increases the internal FN value.
 Use a negative value to decrease.
+Returns the new value of FN.
 
 
 ### Output functions I
