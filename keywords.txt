@@ -60,6 +60,29 @@ deltaP	KEYWORD2
 DOR	KEYWORD2
 
 
+truePositiveRate	KEYWORD2
+trueNegativeRate	KEYWORD2
+falseNegativeRate	KEYWORD2
+falsePositiveRate	KEYWORD2
+
+
+positivePredictiveValue	KEYWORD2
+negativePredictiveValue	KEYWORD2
+falseDiscoveryRate	KEYWORD2
+falseOmissionRate	KEYWORD2
+
+
+positiveLikelihoodRatio	KEYWORD2
+negativeLikelihoodRatio	KEYWORD2
+
+
+MatthewsCorrelationCoefficient	KEYWORD2
+FowlkesMallowsIndex	KEYWORD2
+BookmakerInformedness	KEYWORD2
+markedness	KEYWORD2
+diagnosticOddsRatio	KEYWORD2
+
+
 # Constants (LITERAL1)
 GST_LIB_VERSION	LITERAL1
 
