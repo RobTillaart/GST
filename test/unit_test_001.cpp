@@ -121,22 +121,22 @@ unittest(test_output_functions_II)
   gst.setFalsePositive(124);
   gst.setFalseNegative(423);
 
-  assertEqualFloat(gst.LRplus(),  0.0, 0.0001);
-  assertEqualFloat(gst.LRminus(), 0.0, 0.0001);
-  assertEqualFloat(gst.prevalenceThreshold(), 0.0, 0.0001);
-  assertEqualFloat(gst.threatScore(), 0.0, 0.0001);
+  assertEqualFloat(gst.LRplus(),               2.133860, 0.0001);
+  assertEqualFloat(gst.LRminus(),              0.549364, 0.0001);
+  assertEqualFloat(gst.prevalenceThreshold(),  0.406376, 0.0001);
+  assertEqualFloat(gst.threatScore(),          0.544167, 0.0001);
 
-  assertEqualFloat(gst.criticalSuccessIndex(), 0.0, 0.0001);
-  assertEqualFloat(gst.prevalence(), 0.0, 0.0001);
-  assertEqualFloat(gst.accuracy(),   0.0, 0.0001);
-  assertEqualFloat(gst.balancedAccuracy(), 0.0, 0.0001);
-  assertEqualFloat(gst.F1Score(), 0.0, 0.0001);
+  assertEqualFloat(gst.criticalSuccessIndex(), 0.544167, 0.0001);
+  assertEqualFloat(gst.prevalence(),           0.711640, 0.0001);
+  assertEqualFloat(gst.accuracy(),             0.638228, 0.0001);
+  assertEqualFloat(gst.balancedAccuracy(),     0.661237, 0.0001);
+  assertEqualFloat(gst.F1Score(),              0.704803, 0.0001);
 
-  assertEqualFloat(gst.MCC(), 0.0, 0.0001);
-  assertEqualFloat(gst.FM(),  0.0, 0.0001);
-  assertEqualFloat(gst.BM(),  0.0, 0.0001);
-  assertEqualFloat(gst.MK(),  0.0, 0.0001);
-  assertEqualFloat(gst.DOR(), 0.0, 0.0001);
+  assertEqualFloat(gst.MCC(),                  0.292273, 0.0001);
+  assertEqualFloat(gst.FM(),                   0.714162, 0.0001);
+  assertEqualFloat(gst.BM(),                   0.322474, 0.0001);
+  assertEqualFloat(gst.MK(),                   0.264902, 0.0001);
+  assertEqualFloat(gst.DOR(),                  3.884240, 0.0001);
 }
 
 
