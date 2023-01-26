@@ -132,7 +132,7 @@ unittest(test_output_functions_II)
   assertEqualFloat(gst.balancedAccuracy(), 0.0, 0.0001);
   assertEqualFloat(gst.F1Score(), 0.0, 0.0001);
 
-  assertEqualFloat(gst.MMC(), 0.0, 0.0001);
+  assertEqualFloat(gst.MCC(), 0.0, 0.0001);
   assertEqualFloat(gst.FM(),  0.0, 0.0001);
   assertEqualFloat(gst.BM(),  0.0, 0.0001);
   assertEqualFloat(gst.MK(),  0.0, 0.0001);
